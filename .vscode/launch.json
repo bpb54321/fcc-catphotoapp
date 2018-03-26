@@ -10,6 +10,19 @@
       "name": "Webdriver Test",
       "program": "${workspaceFolder}/tests/index_test.js",
       "console": "integratedTerminal",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber",
+      "program": "${workspaceFolder}/node_modules/.bin/cucumber-js",
+      "console": "integratedTerminal",
+      "args": [
+        "features/",
+        "-r",
+        "steps/",
+      ],
+      
     }
   ]
 }
