@@ -27,11 +27,6 @@ let CustomWorld = function() {
     },
   };
   let screen_size = screen_sizes['xs'];
-  
-  // await this.driver.manage().window().setRect({
-  //   width: screen_size.width,
-  //   height: screen_size.height,
-  // });
 
   this.page = {
     element_locators: {
@@ -47,10 +42,6 @@ setWorldConstructor(CustomWorld);
 
 Given('we load the page with url {string}', async function (url) {
   await this.driver.get(url);
-});
-
-When('I add {int}', function (int) {
-  this.value = this.value + int;
 });
 
 Then('the element {word} is present', async function (element_name) {
