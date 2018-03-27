@@ -17,19 +17,8 @@ const Key = webdriver.Key;
 const expect = require('chai').expect;
 
 // Define World Class (provides the 'this' in all Cucumber steps)
-class World {
-  constructor() {
-    this.value = 0;
-    this.driver = undefined;
-  }
-}
-
-setWorldConstructor(World);
-
-BeforeAll( async function () {
-  let builder = new webdriver.Builder().forBrowser('chrome');
-  this.driver = await builder.build();
-  await this.driver.get('file:///Users/brianblosser/Sites/freecodecamp/catphotoapp/index.html');
+let CustomWorld = function() {
+  this.driver = new webdriver.Builder().forBrowser('chrome').build();
 
   let screen_sizes = {
     'xs': {
@@ -38,11 +27,11 @@ BeforeAll( async function () {
     },
   };
   let screen_size = screen_sizes['xs'];
-    
-  await this.driver.manage().window().setRect({
-    width: screen_size.width,
-    height: screen_size.height,
-  });
+  
+  // await this.driver.manage().window().setRect({
+  //   width: screen_size.width,
+  //   height: screen_size.height,
+  // });
 
   this.page = {
     element_locators: {
@@ -52,10 +41,12 @@ BeforeAll( async function () {
     group_locators: {
     },
   };
-});
+}
 
-Given('I start with {int}', function (int) {
-  this.value = int;
+setWorldConstructor(CustomWorld);
+
+Given('we load the page with url {string}', async function (url) {
+  await this.driver.get(url);
 });
 
 When('I add {int}', function (int) {
@@ -66,8 +57,4 @@ Then('the element {word} is present', async function (element_name) {
   let web_element = await this.driver.findElement(By.css(this.page.element_locators[element_name]));
   this.page[element_name] = web_element;
   expect(this.page[element_name]).to.not.be.undefined;
-});
-
-AfterAll( async function () {
-  await this.driver.quit();
 });
