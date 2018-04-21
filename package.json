@@ -1,16 +1,27 @@
 {
   "name": "catphotoapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "catphotoapp",
   "main": "index.js",
-  "scripts": {},
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^2.1.0",
+    "cypress-cucumber-preprocessor": "^1.0.0"
+  },
+  "scripts": {
+    "cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpb54321/fcc-catphotoapp.git"
+  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "colors": "^1.2.1",
-    "cucumber": "^4.0.0",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+  "bugs": {
+    "url": "https://github.com/bpb54321/fcc-catphotoapp/issues"
   },
-  "dependencies": {}
+  "homepage": "https://github.com/bpb54321/fcc-catphotoapp#readme"
 }
