@@ -6,5 +6,4 @@ Feature: Homepage Presentation
     Given I am on the homepage
 
   Scenario: Heading 1 Typography
-    Given I am on the homepage
-    Then heading-1 has the color "blue"
+    Then heading-1 has the color "rgb(0, 0, 255)"
